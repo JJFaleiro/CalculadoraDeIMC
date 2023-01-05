@@ -1,4 +1,6 @@
-# Bizu:
+# Aplicação que apartir da altura e peso do cliente, retorna seu IMC (Índice de Massa Corporal)
+
+### Bizu:
 
 [] onclick - onkeydown -onsubmit (quando usamos os eventos desta forma ao invez do addEventListener - Temos que ficar atentos só poderemos usar o on especifado uma unica vez na aplicação - pois sempre que for adcionado uma outro ele desconsiderará a ultima o addEventListener podemos usar quantas vezes quisermos)
 
