@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  /*Cores*/
+  --tt-heading: #0c3440;
+  --tt-label: #00453a;
+  --tt-input: #212529;
+  --tt-placeholder: rgba(73, 80, 87, 0.5);
+  --tt-button: #ffffff;
+  --tt-error: #ffffff;
+
+  --ot-input: #02799d;
+
+  --bd-input: rgba(73, 80, 87, 0.3);
+  --bd-input-2: rgba(73, 80, 87, 0);
+
+  --bg-error: #f03e3e;
+  --bg-button: #02799d;
+  --bg-button-hover: #01475c;
+  --bg-input: #dce2e9;
+}
+
+body {
+  background-color: #040924;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+body,
+input,
+form button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center; /*(Colocar conteúdo) Alinha o elemento ao centro da tela*/
+  /* border: .1rem solid red; */
+}
+
+.card {
+  padding: 4.8rem 6.4rem 6.4rem;
+  background-color: #ffffff;
+  max-width: 42.8rem;
+  margin-inline: auto; /*Alinha ao meio da tela*/
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); /*1º eixo x - 2º eixo y de cima para baixo - 3º blur*/
+  border-radius: 0.6rem;
+}
+
+h1,
+form button {
+  font-weight: 700;
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+
+  color: var(--tt-heading);
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+form label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+
+  color: var(--tt-label);
+
+  display: block; /*A tag label tem um displa inline (que não aceitar margin bottom - ou seja é necessário fazer o display block)*/
+  margin-bottom: 0.8rem;
+}
+
+form input {
+  width: 100%;
+  border: 1px solid var(--bd-input);
+  background-color: var(--bg-input);
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+}
+
+form input:focus {
+  /*Quando o input estiver focado*/
+  outline: 2px solid var(--ot-input); /*outline é a linha que fica envolta do input, como se fosse sua borda*/
+  border: 1px solid var(--bd-input-2); /*Transparente*/
+}
+
+form input::placeholder {
+  /*sudo-class para chegar ao placeholder do input*/
+  color: var(--tt-placeholder);
+}
+
+.input-wrapper + .input-wrapper {
+  /*Aplique ao input-wrapper que anterior a ele tenha outro input-wrapper (de trás para frente)*/
+  margin-top: 1.6rem;
+}
+
+form button {
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+
+  width: 100%;
+
+  border: none;
+
+  background-color: var(--bg-button);
+  color: var(--tt-button);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+
+  cursor: pointer;
+
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: var(--bg-button-hover);
+}
+
+/* === modal - pop-up === */
+
+/*Quando sofrer o toggle*/
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute; /*O posicionamento dele ter que ser absoluto para ficar sobreposto ao screen (tela)*/
+  inset: 0; /*Abrevia todos os comando de posicionamento abaixo*/
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  /*Todos os posiconamentos acima serve para esticar o plano de fundo por toda a tela*/
+  background: hsla(0, 0%, 0%, 0.7);
+
+  display: grid;
+  place-content: center; /*centraliza ao centro*/
+
+  /*Este modal ele não aparece por padrão ou seja ele ter que ficar invisivel até acontecer um evento no JS - estes atributos tem propriedade parecidas*/
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative; /*Ou seja o positon relative funciona como um receptor do position absolute, porém tem de ser a um  elemento pelo qual emcapsula a tag alvo - ou seja anterior a ele - tem que ser um elemento PAI */
+}
+
+.modal button {
+  background: none;
+  border: none;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  cursor: pointer;
+
+  transition: transform 0.3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+/* === Alert error === */
+
+/*Quando sofrer o toggle*/
+.alert-error.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--bg-error);
+  /* padding: 1.6rem; */
+  text-align: center;
+  color: var(--tt-error);
+  padding: 0.8rem 0;
+  font-weight: 700;
+
+  /* Alert não abre por padrão necessário um evento*/
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px);
+  transition: transform 0.5s;
+
+}
+
+@media (width < 500px) {
+  form {
+    width: fit-content;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .container {
+    padding: 1.6rem;
+  }
+
+  .card {
+    padding: 3rem 4rem 4rem;
+  }
+}

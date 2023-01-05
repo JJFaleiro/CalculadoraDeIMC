@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Calculadora de IMC</title>
+
+    <!-- scripts -->
+    <script src="./js/script.js" defer type="module"></script>
+    <!--type="module" é a forma nova de importar varios arquivos ao mesmo tempo se necessario-->
+    <!--<script src="./modal.js" defer></script>
+    Forma antiga - Antes do import - export-->
+    <!--defer(adiar) = Ou seja sempre colocarmos o link script no head temos que colocar este atributo pois ele serve para que antes de executar qualquer arquivo JS ele leia toda a página HTML primeiro, para não ocasionar erros na aplicação-->
+  </head>
+  <body>
+    <div class="alert-error">Digite somente números</div>
+
+    <div class="container">
+      <main class="card">
+        <form action="">
+          <h1 class="title">Cálculo de IMC</h1>
+
+          <div class="input-wrapper">
+            <!--wrapper(embrulho)-->
+            <label for="weight">Peso (kg)</label>
+            <!--o for liga o label ao input-->
+            <input id="weight" type="text" placeholder="60" />
+          </div>
+          <div class="input-wrapper">
+            <label for="height">Altura (cm)</label>
+            <!--o for liga o label ao input-->
+            <input id="height" type="text" placeholder="165" />
+          </div>
+
+          <button type="submit">
+            Calcular IMC
+            <img
+              src="./assets/arrow.svg"
+              alt="Icóne de uma seta apontando para a direita"
+            />
+          </button>
+        </form>
+      </main>
+    </div>
+
+    <div class="modal-wrapper">
+      <!--Modal (algo que cobre)-->
+      <div class="modal card">
+        <h2 class="title">
+          <button class="close">
+            <img src="./assets/close.svg" alt="Botão de fechar o popup" />
+          </button>
+          <span>Seu IMC é de 28</span>
+        </h2>
+      </div>
+    </div>
+  </body>
+</html>
