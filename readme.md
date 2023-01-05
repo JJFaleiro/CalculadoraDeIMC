@@ -1,4 +1,4 @@
-# Aplicação que apartir da altura e peso do cliente, retorna seu IMC (Índice de Massa Corporal)
+## Aplicação que apartir da altura e peso do cliente, retorna seu IMC (Índice de Massa Corporal)
 
 ### Bizu:
 
