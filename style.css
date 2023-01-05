@@ -163,6 +163,7 @@ form button:hover {
 
 .modal {
   position: relative; /*Ou seja o positon relative funciona como um receptor do position absolute, porém tem de ser a um  elemento pelo qual emcapsula a tag alvo - ou seja anterior a ele - tem que ser um elemento PAI */
+
 }
 
 .modal button {
@@ -209,6 +210,76 @@ form button:hover {
   transform: translateY(-30px);
   transition: transform 0.5s;
 
+}
+
+/* === TABELA === */
+
+table {
+  /* width: 100%; */
+  /* border: 2px solid var(--ot-input); */
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+
+}
+
+.table-round-corner {
+  text-align: center;
+  overflow: hidden; /*Pesquisar*/
+  border-collapse: separate; /*Pesquisar*/
+  border-radius: 1rem;
+}
+
+thead {
+  text-align: center;
+
+  background-color: var(--bg-button);
+  color: var(--tt-error);
+  
+}
+
+thead tr {
+  display: flex;
+  gap: 0.5rem;
+}
+
+tbody {
+  background-color: var(--bg-input);
+}
+
+tbody tr {
+  display: flex;
+  margin: 0 0.2rem;
+}
+
+th {
+  padding: 0.5rem;
+}
+
+td {
+  padding: 0.5rem;
+  border-top: 1px solid var(--bd-input);
+  margin-left: 0.1rem;
+
+}
+
+#especial {
+  margin-left: 1rem;
+}
+
+.upper {
+  border: none;
+}
+
+.strongIMC {
+  width: 45%;
+}
+
+.normal {
+  width: 55%;
+  font-weight: 400;
 }
 
 @media (width < 500px) {
